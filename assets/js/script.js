@@ -33,7 +33,6 @@ var loadTasks = function() {
 
   // loop over object properties
   $.each(tasks, function(list, arr) {
-    console.log(list, arr);
     // then loop over sub-array
     arr.forEach(function(task) {
       createTask(task.text, task.date, list);
@@ -143,18 +142,10 @@ $(".card .list-group").sortable({
   scroll: false,
   tolerance: "pointer",
   helper: "clone",
-  activate: function(event) {
-    console.log("activate", this);
-  },
-  deactivate: function(event) {
-    console.log("deactivate", this);
-  },
-  over: function(event) {
-    console.log("over", event.target);
-  },
-  out: function(event) {
-    console.log("out", event.target);
-  },
+  activate: function(event) {},
+  deactivate: function(event) {},
+  over: function(event) {},
+  out: function(event) {},
   update: function(event) {
     //array to store the task data in
     // array to store the task data in
@@ -188,8 +179,6 @@ $(".card .list-group").sortable({
     tasks[arrName] = tempArr;
     saveTasks();
 
-    console.log(tempArr);
-
     //trim down list's ID to match object property
     var arrName = $(this)
       .attr("id")
@@ -208,14 +197,9 @@ $("#trash").droppable({
   tolerance: "touch",
   drop: function(event, ui) {
     ui.draggable.remove();
-    console.log("drop");
   },
-  over: function(event, ui) {
-    console.log("over");
-  },
-  out: function(event, ui) {
-    console.log("out");
-  }
+  over: function(event, ui) {},
+  out: function(event, ui) {}
 });
 
 
